@@ -25,14 +25,25 @@
 	<groupId>org.energy-home</groupId>
 	<artifactId>jemma.osgi.javagal.json</artifactId>
 	<packaging>bundle</packaging>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<name>Java Gal json</name>
 
 	<properties>
-		<org.energy-home.jemma.osgi.javagal.version>2.0.6</org.energy-home.jemma.osgi.javagal.version>
-		<felix.bundle.plugin.version>2.5.3</felix.bundle.plugin.version>
-		<javax.servlet.version>2.5.0</javax.servlet.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!-- Internal dependencies version properties -->
+		<org.energy-home.jemma.osgi.javagal.version>2.0.9</org.energy-home.jemma.osgi.javagal.version>
+		
+		<!-- External dependencies version properties -->
+		<com.google.code.gson.version>2.2.4</com.google.code.gson.version>
+		<javax.servlet2.version>2.5.0</javax.servlet2.version>
+		<org.osgi.compendium.version>4.2.0</org.osgi.compendium.version>
+		<org.osgi.core.version>4.2.0</org.osgi.core.version>			
 		<org.slf4j.version>1.6.2</org.slf4j.version>
+		
+		<!-- Maven plugin version properties -->
+		<felix.bundle.plugin.version>2.5.3</felix.bundle.plugin.version>
+		
 	</properties>
 	<build>
 		<plugins>
@@ -85,37 +96,40 @@
 		</repository>
 	</repositories>
 	<dependencies>
-
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.core</artifactId>
-			<version>4.2.0</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.compendium</artifactId>
-			<version>4.2.0</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet</artifactId>
-			<version>${javax.servlet.version}</version>
-			<scope>compile</scope>
-		</dependency>
+	
+	
+		<!-- Internal dependencies  -->
 		<dependency>
 			<groupId>org.energy-home</groupId>
 			<artifactId>jemma.osgi.javagal</artifactId>
 			<version>${org.energy-home.jemma.osgi.javagal.version}</version>
 			<scope>compile</scope>
 		</dependency>
+	
+		<!-- External dependencies -->	
 		
-		<!--  Gson: Java to Json conversion -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<version>2.2.4</version>
+			<version>${com.google.code.gson.version}</version>
+		</dependency>		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet</artifactId>
+			<version>${javax.servlet2.version}</version>
+			<scope>compile</scope>
+		</dependency>		
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>${org.osgi.compendium.version}</version>
+			<scope>compile</scope>
+		</dependency>		
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>${org.osgi.core.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -124,24 +138,6 @@
 			<scope>compile</scope>
 		</dependency> 
 
-<!--
-		<dependency>
-			<groupId>org.ow2.chameleon</groupId>
-			<artifactId>commons.jabsorb</artifactId>
-			<version>${commons.jabsorb.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.osgi</groupId>
-			<artifactId>org.eclipse.osgi</artifactId>
-			<version>${org.eclipse.osgi.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>org.json</artifactId>
-			<version>${org.json.version}</version>
-		</dependency>
--->
 	</dependencies>
 </project>
 
