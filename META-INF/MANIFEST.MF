@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1438024039626
-Build-Jdk: 1.7.0_45
-Built-By: bluewind
+Bnd-LastModified: 1438598167020
+Build-Jdk: 1.8.0_45
+Built-By: tomasi
 Bundle-Activator: org.energy_home.jemma.javagal.json.Activator
 Bundle-ManifestVersion: 2
 Bundle-Name: Java Gal json
@@ -10,12 +10,12 @@ Bundle-SymbolicName: org.energy-home.jemma.osgi.javagal.json
 Bundle-Vendor: Telecom Italia
 Bundle-Version: 1.0.2
 Created-By: Apache Maven Bundle Plugin
-Export-Package: org.energy_home.jemma.javagal.json.servlet;uses:="javax.
- servlet,javax.servlet.http,org.energy_home.jemma.zgd";version="1.0.2",o
- rg.energy_home.jemma.javagal.json;uses:="javax.servlet.http,org.energy_
- home.jemma.zgd,org.osgi.framework,org.osgi.service.http,org.osgi.util.t
- racker";version="1.0.2",org.energy_home.jemma.javagal.json.util;version
- ="1.0.2",org.energy_home.jemma.javagal.json.constants;version="1.0.2"
+Export-Package: org.energy_home.jemma.javagal.json;uses:="javax.servlet.
+ http,org.energy_home.jemma.zgd,org.osgi.framework,org.osgi.service.http
+ ,org.osgi.util.tracker";version="1.0.2",org.energy_home.jemma.javagal.j
+ son.constants;version="1.0.2",org.energy_home.jemma.javagal.json.servle
+ t;uses:="javax.servlet,javax.servlet.http,org.energy_home.jemma.zgd";ve
+ rsion="1.0.2",org.energy_home.jemma.javagal.json.util;version="1.0.2"
 Import-Package: javax.servlet;version="[2.5,3)",javax.servlet.http;versi
  on="[2.5,3)",org.slf4j;version="[1.6,2)",org.energy_home.jemma.zgd;vers
  ion="1.4.1",org.energy_home.jemma.zgd.jaxb;version="[1.0,2)",org.osgi.f
