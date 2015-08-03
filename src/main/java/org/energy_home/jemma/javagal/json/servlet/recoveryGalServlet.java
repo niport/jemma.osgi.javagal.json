@@ -43,8 +43,8 @@ public class recoveryGalServlet extends HttpServlet {
 	GatewayInterface gatewayInterface;
 	Gson gson;
 
-	private final static Logger LOG=LoggerFactory.getLogger(recoveryGalServlet.class);
-	
+	private final static Logger LOG = LoggerFactory.getLogger(recoveryGalServlet.class);
+
 	public recoveryGalServlet(GatewayInterface _gatewayInterface) {
 
 		gatewayInterface = _gatewayInterface;
@@ -59,21 +59,21 @@ public class recoveryGalServlet extends HttpServlet {
 		Status status = new Status();
 		if (done != null) {
 			try {
-				((GalExtenderProxy)gatewayInterface).recoveryGal();
-				status.setCode((short)GatewayConstants.SUCCESS);
+				((GalExtenderProxy) gatewayInterface).recoveryGal();
+				status.setCode((short) GatewayConstants.SUCCESS);
 				status.setMessage("Gal recovery process started");
 			} catch (Exception e) {
-				LOG.error("Error recovering GAL: {}",e);
-			
+				LOG.error("Error recovering GAL: {}", e);
+
 				status.setCode((short) GatewayConstants.GENERAL_ERROR);
-				
-				status.setMessage("Error recovering gal: "+e.getMessage());
-				
+
+				status.setMessage("Error recovering gal: " + e.getMessage());
+
 			}
-			status.setCode((short)GatewayConstants.SUCCESS);
+			status.setCode((short) GatewayConstants.SUCCESS);
 			status.setMessage("Gal recovery process started");
-		}else{
-			
+		} else {
+
 			status.setCode((short) GatewayConstants.GENERAL_ERROR);
 			status.setMessage("User not logged");
 		}

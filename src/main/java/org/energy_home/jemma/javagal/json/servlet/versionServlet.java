@@ -50,7 +50,7 @@ public class versionServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Object done = session.getValue("javaGallogon.isDone");
 		if (done != null) {
-			
+
 			Detail detail = new Detail();
 
 			Version version = null;

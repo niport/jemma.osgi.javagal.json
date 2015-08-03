@@ -50,7 +50,7 @@ public class resetServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Object done = session.getValue("javaGallogon.isDone");
 		if (done != null) {
-			
+
 			String timeoutString = null;
 			Long timeout = -1l;
 			short startModeValue = 0x00;
@@ -71,7 +71,7 @@ public class resetServlet extends HttpServlet {
 			} else {
 				timeoutString = timeoutParam.toString();
 				if (!timeoutString.toLowerCase().startsWith("0x"))
-					timeoutString = "0x"+ timeoutString;
+					timeoutString = "0x" + timeoutString;
 				try {
 					timeout = Long.decode(timeoutString);
 					if (!Util.isUnsigned32(timeout)) {
@@ -140,10 +140,7 @@ public class resetServlet extends HttpServlet {
 			try {
 
 				Status result = gatewayInterface.resetDongleSync(timeout, startModeValue);
-				
-				
-				
-				
+
 				Info info = new Info();
 				info.setStatus(result);
 				response.getOutputStream().print(gson.toJson(info));

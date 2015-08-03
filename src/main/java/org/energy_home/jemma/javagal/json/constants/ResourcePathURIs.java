@@ -14,6 +14,7 @@
  *
  */
 package org.energy_home.jemma.javagal.json.constants;
+
 public interface ResourcePathURIs {
 	public static final String VERSION = "/version";
 	public static final String INFOBASE = "/ib";
@@ -22,7 +23,7 @@ public interface ResourcePathURIs {
 	public static final String RESET = "/reset";
 	public static final String STARTUP = "/startup";
 	public static final String RECOVERY = "/recovery";
-	
+
 	public static final String CALLBACKS = "/callbacks";
 	public static final String NEWCALLBACKS = "/newcallbacks";
 	public static final String SERVICES = "/services";
@@ -32,8 +33,7 @@ public interface ResourcePathURIs {
 	public static final String LOCALNODE_SERVICES = LOCALNODE + SERVICES;
 	public static final String WSNCONNECTION = "/wsnconnection";
 	public static final String ALLSERVICES = "/allservices";
-	public static final String LOCALNODE_ALLSERVICES_WSNCONNECTION = LOCALNODE
-			+ ALLSERVICES + WSNCONNECTION;
+	public static final String LOCALNODE_ALLSERVICES_WSNCONNECTION = LOCALNODE + ALLSERVICES + WSNCONNECTION;
 	public static final String ALIASES = "/aliases";
 	public static final String WSNNODES = "/wsnnodes";
 	public static final String CHANNEL = "/channel";
@@ -67,7 +67,6 @@ public interface ResourcePathURIs {
 	public static final String REMOVE_CHILDREN = "remove-children";
 	public final static String FREQUENCY_AGILITY = "/frequencyagility";
 
-	public final static String URI_FREQUENCY_AGILITY = LOCALNODE
-			+ FREQUENCY_AGILITY;
+	public final static String URI_FREQUENCY_AGILITY = LOCALNODE + FREQUENCY_AGILITY;
 
 }

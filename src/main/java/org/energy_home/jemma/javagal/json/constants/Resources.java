@@ -23,14 +23,13 @@ public class Resources {
 	// Note that we consider only one net, so we have the only "default" one
 	public final static String NET_ROOT_URI = "/net";
 	public static String NET_DEFAULT_ROOT_URI = "/default";
+
 	public static void setNET_DEFAULT_ROOT_URI(String nET_DEFAULT_ROOT_URI) {
 		NET_DEFAULT_ROOT_URI = "/" + nET_DEFAULT_ROOT_URI;
-		NWT_ROOT_URI = GW_ROOT_URI + NET_ROOT_URI
-				+ NET_DEFAULT_ROOT_URI;
+		NWT_ROOT_URI = GW_ROOT_URI + NET_ROOT_URI + NET_DEFAULT_ROOT_URI;
 	}
 
-	public static String NWT_ROOT_URI = GW_ROOT_URI + NET_ROOT_URI
-			+ NET_DEFAULT_ROOT_URI;
+	public static String NWT_ROOT_URI = GW_ROOT_URI + NET_ROOT_URI + NET_DEFAULT_ROOT_URI;
 
 	/*
 	 * URIs

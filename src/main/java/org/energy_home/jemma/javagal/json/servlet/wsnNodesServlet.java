@@ -44,7 +44,7 @@ public class wsnNodesServlet extends HttpServlet {
 	GatewayInterface gatewayInterface;
 	Gson gson;
 
-	public wsnNodesServlet(GatewayInterface  _gatewayInterface) {
+	public wsnNodesServlet(GatewayInterface _gatewayInterface) {
 		gatewayInterface = _gatewayInterface;
 		gson = new Gson();
 	}
@@ -53,7 +53,7 @@ public class wsnNodesServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Object done = session.getValue("javaGallogon.isDone");
 		if (done != null) {
-			
+
 			Object mode = request.getParameter(Resources.URI_PARAM_MODE);
 			if (mode != null && mode.toString().equals(Resources.URI_PARAM_CACHE)) {
 				Detail detail = new Detail();
@@ -106,7 +106,7 @@ public class wsnNodesServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Object done = session.getValue("javaGallogon.isDone");
 		if (done != null) {
-			
+
 			String timeoutString = null;
 			Long timeout = -1l;
 			Object timeoutParam = request.getParameter(Resources.URI_PARAM_TIMEOUT);
@@ -123,7 +123,7 @@ public class wsnNodesServlet extends HttpServlet {
 			} else {
 				timeoutString = timeoutParam.toString();
 				if (!timeoutString.toLowerCase().startsWith("0x"))
-					timeoutString = "0x"+ timeoutString;
+					timeoutString = "0x" + timeoutString;
 				try {
 					timeout = Long.decode(timeoutString);
 					if (!Util.isUnsigned32(timeout)) {

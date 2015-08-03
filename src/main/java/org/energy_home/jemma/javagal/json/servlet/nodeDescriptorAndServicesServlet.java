@@ -42,7 +42,7 @@ import com.google.gson.Gson;
 
 public class nodeDescriptorAndServicesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-GatewayInterface gatewayInterface;
+	GatewayInterface gatewayInterface;
 	Gson gson;
 
 	public nodeDescriptorAndServicesServlet(GatewayInterface _gatewayInterface) {
@@ -55,7 +55,7 @@ GatewayInterface gatewayInterface;
 		HttpSession session = request.getSession(true);
 		Object done = session.getValue("javaGallogon.isDone");
 		if (done != null) {
-			
+
 			String timeoutString = null;
 
 			Long timeout = -1l;
@@ -76,7 +76,7 @@ GatewayInterface gatewayInterface;
 			} else {
 				timeoutString = timeoutParam.toString();
 				if (!timeoutString.toLowerCase().startsWith("0x"))
-					timeoutString = "0x"+ timeoutString;
+					timeoutString = "0x" + timeoutString;
 				try {
 					timeout = Long.decode(timeoutString);
 					if (!Util.isUnsigned32(timeout)) {

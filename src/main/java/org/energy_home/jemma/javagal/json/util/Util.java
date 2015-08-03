@@ -37,7 +37,7 @@ public class Util {
 	public static final String UTF8_CHAR_ENCODING = "UTF-8";
 	private static Random r;
 
-	private static final Logger LOG = LoggerFactory.getLogger( Util.class );
+	private static final Logger LOG = LoggerFactory.getLogger(Util.class);
 
 	static {
 		unsigned8MaxValue = Long.decode("0xff");

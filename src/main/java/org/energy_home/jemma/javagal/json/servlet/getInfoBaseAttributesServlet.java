@@ -55,9 +55,9 @@ public class getInfoBaseAttributesServlet extends HttpServlet {
 			Detail detail = new Detail();
 
 			String result = "";
-			String attributeIDString ="";
+			String attributeIDString = "";
 			Long attributeID = 0L;
-			
+
 			Object attributeIDParam = request.getParameter(Resources.PARAMETER_ID);
 
 			attributeIDString = attributeIDParam.toString();

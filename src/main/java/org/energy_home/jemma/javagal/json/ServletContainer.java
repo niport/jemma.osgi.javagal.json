@@ -40,14 +40,14 @@ import org.osgi.service.http.HttpContext;
 import org.osgi.service.http.HttpService;
 import org.osgi.service.http.NamespaceException;
 
-public class ServletContainer implements HttpSessionListener{
+public class ServletContainer implements HttpSessionListener {
 
 	HttpService service;
 	GatewayInterface gatewayInterface;
 	String prefix = "/json";
-	
+
 	public ServletContainer(HttpService _service, GatewayInterface _gatewayInterface) {
-		
+
 		service = _service;
 		gatewayInterface = _gatewayInterface;
 		try {
@@ -61,9 +61,7 @@ public class ServletContainer implements HttpSessionListener{
 
 	private void registerServlets() {
 		try {
-			
-		
-			
+
 			/* json/version */
 			service.registerServlet(prefix + Resources.GW_ROOT_URI + ResourcePathURIs.VERSION, new versionServlet(gatewayInterface), null, null);
 			/* json/net/default/channel */
@@ -75,7 +73,8 @@ public class ServletContainer implements HttpSessionListener{
 			 */
 			service.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES, new wsnNodesServlet(gatewayInterface), null, null);
 			/* json/net/default/allwsnnodes/lqi */
-			service.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.ALLWSNNODES + ResourcePathURIs.LQIINFORMATION, new allLqiInformationsServlet(gatewayInterface), null, null);
+			service.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.ALLWSNNODES + ResourcePathURIs.LQIINFORMATION, new allLqiInformationsServlet(
+					gatewayInterface), null, null);
 			/*
 			 * json/net/default/localnode/frequencyagility?timeout={0:x8}&
 			 * scanChannel={1:x2}&scanDuration={2:x2}
@@ -85,7 +84,8 @@ public class ServletContainer implements HttpSessionListener{
 			 * json/net/default/wsnnodes/nodedescriptorservicelist?timeout={0:x8}
 			 * &address={1:x2/8}
 			 */
-			service.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES + ResourcePathURIs.NODEDESCRIPTORSERVICELIST, new nodeDescriptorAndServicesServlet(gatewayInterface), null, null);
+			service.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES + ResourcePathURIs.NODEDESCRIPTORSERVICELIST, new nodeDescriptorAndServicesServlet(
+					gatewayInterface), null, null);
 
 			/*
 			 * Defines Reset route
@@ -118,10 +118,9 @@ public class ServletContainer implements HttpSessionListener{
 			 * Defines InfoBase route "/net/default/ib"
 			 */
 			service.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.INFOBASE, new getInfoBaseAttributesServlet(gatewayInterface), null, null);
-			
+
 			service.registerServlet(prefix + Resources.GW_ROOT_URI + ResourcePathURIs.RECOVERY, new recoveryGalServlet(gatewayInterface), null, null);
-			
-			
+
 		} catch (ServletException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -177,18 +176,16 @@ public class ServletContainer implements HttpSessionListener{
 		 * Defines InfoBaseAttribute route "/net/default/ib"
 		 */
 		service.unregister(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.INFOBASE);
-		
-		
-		
+
 	}
 
 	@Override
 	public void sessionCreated(HttpSessionEvent arg0) {
-		
+
 	}
 
 	@Override
 	public void sessionDestroyed(HttpSessionEvent arg0) {
-		
+
 	}
 }

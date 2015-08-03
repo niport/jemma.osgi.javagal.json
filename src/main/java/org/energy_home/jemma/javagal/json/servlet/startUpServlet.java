@@ -51,7 +51,7 @@ public class startUpServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Object done = session.getValue("javaGallogon.isDone");
 		if (done != null) {
-			
+
 			String timeoutString = null;
 			Long timeout = -1l;
 			Object timeoutParam = request.getParameter(Resources.URI_PARAM_TIMEOUT);
@@ -68,7 +68,7 @@ public class startUpServlet extends HttpServlet {
 			} else {
 				timeoutString = timeoutParam.toString();
 				if (!timeoutString.toLowerCase().startsWith("0x"))
-					timeoutString = "0x"+ timeoutString;
+					timeoutString = "0x" + timeoutString;
 				try {
 					timeout = Long.decode(timeoutString);
 					if (!Util.isUnsigned32(timeout)) {
@@ -149,7 +149,7 @@ public class startUpServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Object done = session.getValue("javaGallogon.isDone");
 		if (done != null) {
-			
+
 			String timeoutString = null;
 			Long timeout = -1l;
 			Object timeoutParam = request.getParameter(Resources.URI_PARAM_TIMEOUT);
@@ -166,7 +166,7 @@ public class startUpServlet extends HttpServlet {
 			} else {
 				timeoutString = timeoutParam.toString();
 				if (!timeoutString.toLowerCase().startsWith("0x"))
-					timeoutString = "0x"+ timeoutString;
+					timeoutString = "0x" + timeoutString;
 				try {
 					timeout = Long.decode(timeoutString);
 					if (!Util.isUnsigned32(timeout)) {

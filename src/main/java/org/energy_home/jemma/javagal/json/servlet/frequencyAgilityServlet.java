@@ -39,7 +39,7 @@ import com.google.gson.Gson;
 public class frequencyAgilityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	GatewayInterface gatewayInterface;
-	
+
 	Gson gson;
 
 	public frequencyAgilityServlet(GatewayInterface _gatewayInterface) {
@@ -52,7 +52,7 @@ public class frequencyAgilityServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Object done = session.getValue("javaGallogon.isDone");
 		if (done != null) {
-			
+
 			String timeoutString = null;
 			String scanChannelString = null;
 			String scanDurationString = null;
@@ -76,7 +76,7 @@ public class frequencyAgilityServlet extends HttpServlet {
 			} else {
 				timeoutString = timeoutParam.toString();
 				if (!timeoutString.toLowerCase().startsWith("0x"))
-					timeoutString = "0x"+ timeoutString;
+					timeoutString = "0x" + timeoutString;
 				try {
 					timeout = Long.decode(timeoutString);
 					if (!Util.isUnsigned32(timeout)) {

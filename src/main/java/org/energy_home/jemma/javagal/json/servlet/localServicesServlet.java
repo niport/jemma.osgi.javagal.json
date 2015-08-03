@@ -42,7 +42,7 @@ public class localServicesServlet extends HttpServlet {
 	Gson gson;
 
 	public localServicesServlet(GatewayInterface _gatewayInterface) {
-		gatewayInterface =_gatewayInterface; 
+		gatewayInterface = _gatewayInterface;
 		gson = new Gson();
 	}
 
@@ -50,8 +50,6 @@ public class localServicesServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Object done = session.getValue("javaGallogon.isDone");
 		if (done != null) {
-
-			
 
 			String timeoutString = null;
 			Long timeout = -1l;
@@ -69,7 +67,7 @@ public class localServicesServlet extends HttpServlet {
 			} else {
 				timeoutString = timeoutParam.toString();
 				if (!timeoutString.toLowerCase().startsWith("0x"))
-					timeoutString = "0x"+ timeoutString;
+					timeoutString = "0x" + timeoutString;
 				try {
 					timeout = Long.decode(timeoutString);
 					if (!Util.isUnsigned32(timeout)) {

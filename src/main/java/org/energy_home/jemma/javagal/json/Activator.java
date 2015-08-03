@@ -27,7 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Activator implements BundleActivator {
-	private static final Logger LOG = LoggerFactory.getLogger( Activator.class );
+	private static final Logger LOG = LoggerFactory.getLogger(Activator.class);
 	private static BundleContext context;
 	GalExtenderProxyFactory gatewayFactory;
 	ServletContainer container;
@@ -83,14 +83,13 @@ public class Activator implements BundleActivator {
 				public void removedService(ServiceReference reference, Object service) {
 					container.unregister();
 					try {
-						((GalExtenderProxy)container.gatewayInterface).deleteProxy();
+						((GalExtenderProxy) container.gatewayInterface).deleteProxy();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 
 					container = null;
 					httpService = null;
-					
 
 				}
 
@@ -98,9 +97,9 @@ public class Activator implements BundleActivator {
 
 					try {
 						httpService = (HttpService) this.context.getService(reference);
-						
+
 						container = new ServletContainer(httpService, gatewayFactory.createGatewayInterfaceObject());
-						
+
 					} catch (Exception exception) {
 						exception.printStackTrace();
 					}
