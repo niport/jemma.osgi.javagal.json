@@ -1,23 +1,20 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1516572927618
+Bnd-LastModified: 1517965702708
 Build-Jdk: 1.8.0_31
 Built-By: portinaro
 Bundle-Category: JEMMA JavaGAL, GUI
 Bundle-ManifestVersion: 2
-Bundle-Name: Java Gal JSON-REST interface
+Bundle-Name: Java Gal json
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-SymbolicName: jemma.osgi.javagal.json
 Bundle-Vendor: Telecom Italia
-Bundle-Version: 1.0.3.qualifier
-Service-Component: OSGI-INF/*.xml
+Bundle-Version: 1.0.3.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
-Import-Package: com.google.gson;version="[2.2,3)",
- javax.servlet;version="[2.5,3)",
- javax.servlet.http;version="[2.5,3)",
- org.energy_home.jemma.zgd;version="[1.5.0,1.6.0)",
- org.energy_home.jemma.zgd.jaxb;version="[1.0.4,1.1.0)",
- org.osgi.service.component;version="1.1.0",
- org.osgi.service.http;version="[1.2,2)",
- org.slf4j;version="[1.6,2)"
-Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+Import-Package: javax.servlet;version="[2.5,3)",javax.servlet.http;versi
+ on="[2.5,3)",org.slf4j;version="[1.6,2)",org.energy_home.jemma.zgd;vers
+ ion="[1.5.0,1.6.0)",org.energy_home.jemma.zgd.jaxb;version="[1.0.0,1.1.
+ 0)",org.osgi.service.component;version="[1.1,2)",org.osgi.service.http;
+ version="[1.2,2)",com.google.gson;version="[2.2,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/*.xml
 Tool: Bnd-2.3.0.201405100607

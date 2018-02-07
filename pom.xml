@@ -24,7 +24,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- Internal dependencies version properties -->
-		<org.energy-home.jemma.osgi.javagal.version>2.0.10</org.energy-home.jemma.osgi.javagal.version>
+		<org.energy-home.jemma.zgd.version>1.0.0-SNAPSHOT</org.energy-home.jemma.zgd.version>
 
 		<!-- External dependencies version properties -->
 		<com.google.code.gson.version>2.2.4</com.google.code.gson.version>
@@ -77,14 +77,12 @@
 							org.slf4j;version="[1.6,2)",
 							org.energy_home.jemma.zgd;version="[1.5.0, 1.6.0)",
 							org.energy_home.jemma.zgd.jaxb;version="[1.0.0, 1.1.0)",
-							org.osgi.framework;version="[1.5,2)",
 							org.osgi.service.component;version="[1.1,2)",
-							org.osgi.service.event;version="[1.2,2)",
 							org.osgi.service.http;version="[1.2,2)",
-							org.osgi.util.tracker;version="1.4.2",
 							com.google.gson
 						</Import-Package>
 						<Export-Package></Export-Package>
+						<Service-Component>OSGI-INF/*.xml</Service-Component>
 						<Bundle-Category>JEMMA JavaGAL, GUI</Bundle-Category>
 					</instructions>
 				</configuration>
@@ -103,8 +101,8 @@
 		<!-- Internal dependencies -->
 		<dependency>
 			<groupId>org.energy-home</groupId>
-			<artifactId>jemma.osgi.javagal</artifactId>
-			<version>${org.energy-home.jemma.osgi.javagal.version}</version>
+			<artifactId>jemma.osgi.zgd.api</artifactId>
+			<version>${org.energy-home.jemma.zgd.version}</version>
 			<scope>compile</scope>
 		</dependency>
 
