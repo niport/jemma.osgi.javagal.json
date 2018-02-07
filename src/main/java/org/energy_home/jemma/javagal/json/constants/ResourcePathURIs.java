@@ -50,7 +50,7 @@ public interface ResourcePathURIs {
 	public static final String SEND_APSMESSAGE = WSNCONNECTION + APSMESSAGE;
 
 	public static final String MODE_CACHE = "mode=cache";
-	public static final String URILISTENER_PARAM = "urilistener=";
+	public static final String URILISTENER_PARAM = "uriListener=";
 	public static final String TIMEOUT_PARAM = "timeout=";
 	public static final String INFINITE_TIMEOUT = "ffffffff";
 	public static final String INDEX_PARAM = "index=";
