@@ -89,7 +89,7 @@ public class CommonServlet extends HttpServlet {
 
 		if (param != null) {
 			try {
-				value = Long.valueOf(param);
+				value = Long.decode(param);
 			} catch (NumberFormatException e) {
 				throw new IllegalArgumentException(name + " parameter must be a number");
 			}
