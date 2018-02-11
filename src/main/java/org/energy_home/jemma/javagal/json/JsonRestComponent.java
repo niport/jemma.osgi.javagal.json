@@ -14,11 +14,6 @@
  */
 package org.energy_home.jemma.javagal.json;
 
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
-
 import org.energy_home.jemma.zgd.GatewayInterface;
 import org.osgi.service.component.ComponentFactory;
 import org.osgi.service.component.ComponentInstance;
@@ -31,17 +26,17 @@ public class JsonRestComponent {
 
 	private final Logger LOG = LoggerFactory.getLogger("REST-JSON");
 	private HttpService httpService;
-	
+
 	private ServletContainer servlets;
 
 	protected void activate() {
-		LOG.debug("Activated");		
+		LOG.debug("Activated");
 	}
 
 	protected void deactivate() {
 		LOG.debug("Dectivated");
 	}
-	
+
 	protected void bindHttpService(HttpService s) {
 		this.httpService = s;
 	}
@@ -55,7 +50,8 @@ public class JsonRestComponent {
 	@SuppressWarnings("unchecked")
 	protected void bindComponentFactory(ComponentFactory s) {
 		ComponentInstance instance = s.newInstance(null);
-		GatewayInterface gatewayInterface = (GatewayInterface) instance.getInstance();	
+
+		GatewayInterface gatewayInterface = (GatewayInterface) instance.getInstance();
 		servlets = new ServletContainer(httpService, gatewayInterface);
 		servlets.register();
 		LOG.debug("Bound ComponentFactory");
