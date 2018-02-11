@@ -45,7 +45,8 @@ import org.slf4j.LoggerFactory;
  * 
  * TODO: Use whiteboard pattern.
  * 
- * TODO: Let CommonServlet have a method that returns the root URL of the servlet itself!
+ * TODO: Let CommonServlet have a method that returns the root URL of the
+ * servlet itself!
  * 
  * TODO: we can remember the registered servlet resources.
  * 
@@ -58,31 +59,31 @@ public class ServletContainer implements HttpSessionListener {
 	GatewayInterface gatewayInterface;
 	String prefix = "/json";
 
-	public ServletContainer(HttpService service, GatewayInterface _gatewayInterface) {
+	public ServletContainer(HttpService service, GatewayInterface gatewayInterface) {
 		this.http = service;
-		gatewayInterface = _gatewayInterface;
+		this.gatewayInterface = gatewayInterface;
 	}
 
 	public void register() {
 		try {
-			
+
 			/* json/version */
-			http.registerServlet(prefix + Resources.GW_ROOT_URI + ResourcePathURIs.VERSION, new VersionServlet(gatewayInterface), null,
-					null);
+			http.registerServlet(prefix + Resources.GW_ROOT_URI + ResourcePathURIs.VERSION,
+					new VersionServlet(gatewayInterface), null, null);
 			/* json/net/default/channel */
-			http.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.CHANNEL, new ChannelServlet(gatewayInterface),
-					null, null);
+			http.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.CHANNEL,
+					new ChannelServlet(gatewayInterface), null, null);
 			/*
 			 * json/net/default/wsnnodes GET
 			 * 
 			 * Leave DELETE
 			 */
-			http.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES, new WsnNodesServlet(gatewayInterface),
-					null, null);
-			
-			
+			http.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES,
+					new WsnNodesServlet(gatewayInterface), null, null);
+
 			/* json/net/default/allwsnnodes/lqi */
-			http.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.ALLWSNNODES + ResourcePathURIs.LQIINFORMATION,
+			http.registerServlet(
+					prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.ALLWSNNODES + ResourcePathURIs.LQIINFORMATION,
 					new AllLqiInformationsServlet(gatewayInterface), null, null);
 			/*
 			 * json/net/default/localnode/frequencyagility?timeout={0:x8}&
@@ -95,32 +96,32 @@ public class ServletContainer implements HttpSessionListener {
 			 * &address={1:x2/8}
 			 */
 			http.registerServlet(
-					prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES + ResourcePathURIs.NODEDESCRIPTORSERVICELIST,
+					prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES
+							+ ResourcePathURIs.NODEDESCRIPTORSERVICELIST,
 					new NodeDescriptorAndServicesServlet(gatewayInterface), null, null);
 
 			/*
 			 * Defines Reset route "json/reset?timeout={0,08x}&startMode={1,01x}"
 			 */
-			http.registerServlet(prefix + Resources.GW_ROOT_URI + ResourcePathURIs.RESET, new ResetServlet(gatewayInterface), null,
-					null);
+			http.registerServlet(prefix + Resources.GW_ROOT_URI + ResourcePathURIs.RESET,
+					new ResetServlet(gatewayInterface), null, null);
 			/*
 			 * Defines PermitjoinAll route "json/net/default/allwsnnodes/permitjoin"
 			 */
 			http.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.ALLPERMIT_JOIN,
 					new AllPermitJoinServlet(gatewayInterface), null, null);
 			/*
-			 * Defines StartupGatewayDevice route
-			 * "json/startup?timeout={0,08x}&start=true" POST Defines
-			 * readStartupAttributeSet route
+			 * Defines StartupGatewayDevice route "json/startup?timeout={0,08x}&start=true"
+			 * POST Defines readStartupAttributeSet route
 			 * "json/startup?timeout={0,08x}&index={1,01x}" GET
 			 */
-			http.registerServlet(prefix + Resources.GW_ROOT_URI + ResourcePathURIs.STARTUP, new StartUpServlet(gatewayInterface), null,
-					null);
+			http.registerServlet(prefix + Resources.GW_ROOT_URI + ResourcePathURIs.STARTUP,
+					new StartUpServlet(gatewayInterface), null, null);
 			/*
-			 * Defines GetServiceDescriptor route
-			 * "json/net/default/wsnnodes/services/"
+			 * Defines GetServiceDescriptor route "json/net/default/wsnnodes/services/"
 			 */
-			http.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES + ResourcePathURIs.SERVICES,
+			http.registerServlet(
+					prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES + ResourcePathURIs.SERVICES,
 					new NodeServicesServlet(gatewayInterface), null, null);
 			/*
 			 * Defines LocalServices route "/net/default/localnode/services"
@@ -134,8 +135,8 @@ public class ServletContainer implements HttpSessionListener {
 			http.registerServlet(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.INFOBASE,
 					new GetInfoBaseAttributesServlet(gatewayInterface), null, null);
 
-			http.registerServlet(prefix + Resources.GW_ROOT_URI + ResourcePathURIs.RECOVERY, new RecoveryGalServlet(gatewayInterface),
-					null, null);
+			http.registerServlet(prefix + Resources.GW_ROOT_URI + ResourcePathURIs.RECOVERY,
+					new RecoveryGalServlet(gatewayInterface), null, null);
 
 		} catch (ServletException e) {
 			LOG.error("Exception", e);
@@ -152,7 +153,8 @@ public class ServletContainer implements HttpSessionListener {
 		/* Remove route json/net/default/wsnnodes */
 		http.unregister(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES);
 		/* Remove route json/net/default/allwsnnodes/lqi */
-		http.unregister(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.ALLWSNNODES + ResourcePathURIs.LQIINFORMATION);
+		http.unregister(
+				prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.ALLWSNNODES + ResourcePathURIs.LQIINFORMATION);
 		/* Remove route json/net/default/localnode/frequencyagility */
 		http.unregister(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.URI_FREQUENCY_AGILITY);
 		/*
@@ -160,7 +162,8 @@ public class ServletContainer implements HttpSessionListener {
 		 * json/net/default/wsnnodes/nodedescriptorservicelist?timeout={0:x8}&
 		 * address={1:x2/8}
 		 */
-		http.unregister(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES + ResourcePathURIs.NODEDESCRIPTORSERVICELIST);
+		http.unregister(prefix + Resources.NWT_ROOT_URI + ResourcePathURIs.WSNNODES
+				+ ResourcePathURIs.NODEDESCRIPTORSERVICELIST);
 
 		/*
 		 * Remove route "json/reset"
